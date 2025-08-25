@@ -108,7 +108,9 @@ A hands-on project that hardens an S3 bucket for application/data storage:
   ]
 }
 ```
-**Screenshots:**
+**Screenshots:**  
+- ![Policy editor](screenshots/Screenshot%20(161).png)  
+- ![Policy saved](screenshots/Screenshot%20(163).png)
 
 ---
 
