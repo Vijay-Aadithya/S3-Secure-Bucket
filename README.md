@@ -42,11 +42,11 @@ A hands-on project that hardens an S3 bucket for application/data storage:
 
 ## 2. Create the secure S3 bucket
 
-1. Console → **S3 → Create bucket** (Region: `eu-west-2`)
-2. **Block public access:** ON (all four)
-3. **Object ownership:** Bucket owner enforced (ACLs disabled) *(verify under Permissions after create)*
-4. **Bucket versioning:** **Enabled**
-5. **Default encryption:** **SSE-KMS** → select `alias/s3-secure-data` → **Enable S3 Bucket Keys**
+- Console → **S3 → Create bucket** (Region: `eu-west-2`)
+- **Block public access:** ON (all four)
+- **Object ownership:** Bucket owner enforced (ACLs disabled) *(verify under Permissions after create)*
+- **Bucket versioning:** **Enabled**
+- **Default encryption:** **SSE-KMS** → select `alias/s3-secure-data` → **Enable S3 Bucket Keys**
 
 ![Block public & Versioning](screenshots/Screenshot%20(160).png)  
 ![Default SSE-KMS at create](screenshots/Screenshot%20(159).png)
@@ -55,9 +55,9 @@ A hands-on project that hardens an S3 bucket for application/data storage:
 
 ## 3. Enforce TLS-only and the exact KMS key (bucket policy)
 
-1. S3 → **your bucket → Permissions → Bucket policy → Edit**
-2. Paste the policy below, replacing placeholders (`YOUR_BUCKET`, `REGION`, `ACCOUNT_ID`, `KMS_KEY_ID`).
-3. **Save changes**.
+- S3 → **your bucket → Permissions → Bucket policy → Edit**
+- Paste the policy below, replacing placeholders (`YOUR_BUCKET`, `REGION`, `ACCOUNT_ID`, `KMS_KEY_ID`).
+- **Save changes**.
 
 ```json
 {
@@ -140,10 +140,10 @@ If using a dedicated logs bucket, ensure the bucket policy allows CloudTrail to 
 ![Logs bucket policy](screenshots/Screenshot%20(170).png)
 
 ### 5.2. Create the trail
-1. **CloudTrail → Create trail** (multi-region if desired)  
-2. Use existing logs bucket or create a new one  
-3. Enable **SSE-KMS encryption** for log files  
-4. Enable **log file validation**
+- **CloudTrail → Create trail** (multi-region if desired)  
+- Use existing logs bucket or create a new one  
+- Enable **SSE-KMS encryption** for log files  
+- Enable **log file validation**
 
 **Screenshots:**  
 ![Trail – storage & naming](screenshots/Screenshot%20(171).png)  
