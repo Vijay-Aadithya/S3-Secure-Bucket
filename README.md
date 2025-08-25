@@ -254,4 +254,4 @@ aws s3api put-object-acl --bucket YOUR_BUCKET --key ok.txt --acl public-read
 ---
 ### 7.7. (Optional) Extra trail confirmation
 **Screenshots:**  
-- ![Trail success banner](screenshots/Screenshot%202025-08-19%20212356.png)
+ ![Trail success banner](screenshots/Screenshot%202025-08-19%20212356.png)
