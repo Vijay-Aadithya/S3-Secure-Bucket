@@ -198,14 +198,28 @@ On your secure bucket → **Management → Inventory → Create**:
 ```bash
 aws s3api put-object --bucket YOUR_BUCKET --key no-sse.txt --body no-sse.txt
 ```
+**Screenshots:**  
+ ![Denied: no SSE](screenshots/Screenshot%202025-08-19%20205931.png)
+
+---
 ### 7.2. Deny: wrong SSE (AES256)
 ```bash
 aws s3api put-object --bucket YOUR_BUCKET --key sse-s3.txt --body sse-s3.txt --server-side-encryption AES256
 ```
+**Screenshots:**  
+ ![Denied: wrong SSE](screenshots/Screenshot%202025-08-19%20211457.png)
+
+---
 ### 7.3. Allow: correct SSE-KMS
 ```bash
 aws s3api put-object --bucket YOUR_BUCKET --key ok.txt --body ok.txt \ --server-side-encryption aws:kms --ssekms-key-id YOUR_KEY_ARN
 ```
+**Screenshots:**  
+ ![Allowed: SSE-KMS upload](screenshots/Screenshot%202025-08-19%20211507.png)  
+ ![Allowed: SSE-KMS alt](screenshots/Screenshot%202025-08-19%20211706.png)
+
+---
+
 ### 7.4. Versioning proof (v1, v2, list versions)
 ```bash
 echo v1> vdemo.txt
@@ -218,7 +232,26 @@ aws s3api put-object --bucket YOUR_BUCKET --key version-demo.txt --body vdemo.tx
 
 aws s3api list-object-versions --bucket YOUR_BUCKET --prefix version-demo.txt
 ```
+ ![Upload v1](screenshots/Screenshot%202025-08-19%20210706.png)  
+ ![Upload v2](screenshots/Screenshot%202025-08-19%20210956.png)  
+
+
+---
 ### 7.5. ACLs blocked (public-read)
 ```bash
 aws s3api put-object-acl --bucket YOUR_BUCKET --key ok.txt --acl public-read
 ```
+**Screenshots:**  
+ ![Denied: object ACL](screenshots/Screenshot%202025-08-19%20211553.png)
+
+---
+### 7.6. (Optional) Identity not authorized
+- These are expected errors if the IAM identity calling S3 does not have the right policy attached.
+**Screenshots:**  
+ ![Denied: missing identity policy](screenshots/Screenshot%202025-08-19%20211606.png)  
+ ![Denied: no identity-based policy allows PutObject](screenshots/Screenshot%202025-08-19%20211545.png)
+
+---
+### 7.7. (Optional) Extra trail confirmation
+**Screenshots:**  
+- ![Trail success banner](screenshots/Screenshot%202025-08-19%20212356.png)
